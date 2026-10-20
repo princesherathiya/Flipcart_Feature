@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -12,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the website...'
-                sh 'test -f index.html'
+                bat 'if exist index.html (exit /b 0) else (exit /b 1)'
                 echo 'Build completed successfully!'
             }
         }
